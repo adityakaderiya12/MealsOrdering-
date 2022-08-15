@@ -11,13 +11,16 @@ function pressHandler() {
 function CategoriesScreen({ navigation }) {
     function renderCategoryItem(itemData) {
         function pressHandler() {
-            navigation.navigate('MealsOverviews');
+            navigation.navigate('MealsOverviews',{
+                categoryId:itemData.item.id,
+            });
         }
         return (
             <CategoryGridTile
                 title={itemData.item.title}
                 color={itemData.item.color}
                 onPress={pressHandler}
+                navigation ={navigation}
             />
         );
     }
